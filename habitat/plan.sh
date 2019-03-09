@@ -1,5 +1,4 @@
 pkg_origin=cheftraining
-pkg_name=haproxy
 pkg_description="The Reliable, High Performance TCP/HTTP Load Balancer"
 pkg_version=1.6.11
 pkg_maintainer="Chef Training <training@chef.io>"
